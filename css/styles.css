@@ -1,0 +1,45 @@
+body {
+    font-family: 'Cormorant Garamond', serif;
+    background: linear-gradient(to bottom, #eaf5ec 70%, rgba(234, 245, 236, 0.6) 90%, rgba(255, 255, 255, 0.5)),
+                url('/img/layered-waves-haikei.png') no-repeat center bottom;
+    background-size: cover;
+    background-attachment: fixed;
+    background-color: #eaf5ec;
+    min-height: 100vh;
+    font-size: 1.3rem;
+}
+
+h1, h2 {
+    font-weight: bold;
+}
+
+.card img {
+    height: 300px;
+    object-fit: cover;
+}
+
+.nav-link {
+    color: #000 !important;
+    font-size: 1.5rem;
+    font-family: 'Cormorant Garamond', serif;
+}
+
+.nav-link:hover {
+    text-decoration: underline;
+}
+
+.card {
+    background-color: rgba(255, 255, 255, 0.9);
+    border: none;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 12px;
+}
+
+
+footer a img {
+    transition: transform 0.3s ease;
+}
+
+footer a img:hover {
+    transform: scale(1.2);
+}
