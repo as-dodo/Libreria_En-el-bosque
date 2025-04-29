@@ -8,7 +8,7 @@
 
     <div class="col-md-6 d-flex align-items-center justify-content-center">
       <div class="w-75">
-        <h2 class="mb-4">Iniciar Sesión</h2>
+        <h2 class="mb-4">Inicia sesión</h2>
 
         <form>
           <div class="form-group mb-3">

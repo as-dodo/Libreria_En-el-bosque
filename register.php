@@ -1,11 +1,10 @@
 <?php include('includes/header.php'); ?>
 
-<h2>Registrarse</h2>
 
 <div class="container my-5">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <h2 class="mb-4 text-center" style="font-family: 'Cormorant Garamond', serif;">Registro</h2>
+            <h2 class="mb-4 text-center">Crea una cuenta</h2>
 
             <form>
                 <div class="row">
