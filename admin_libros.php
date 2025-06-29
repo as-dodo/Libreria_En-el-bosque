@@ -27,15 +27,16 @@ $libros = getLibros($conexion);
         <tbody>
             <?php foreach ($libros as $libro): ?>
                 <tr>
-                    <td><?php echo $libro['titulo']; ?></td>
-                    <td><?php echo $libro['autor']; ?></td>
-                    <td>$<?php echo $libro['precio']; ?></td>
-                    <td>
-                        <form method="POST" action="eliminar_libro.php" class="d-inline">
-                            <input type="hidden" name="id" value="<?php echo $libro['id']; ?>">
-                            <button type="submit" class="btn btn-danger btn-sm"> <i class="bi bi-trash"></i> Eliminar</button>
-                        </form>
-                    </td>
+                    <td><?php echo htmlspecialchars($libro['titulo']); ?></td>
+                        <td><?php echo htmlspecialchars($libro['autor']); ?></td>
+                        <td>$<?php echo htmlspecialchars($libro['precio']); ?></td>
+
+                        <td>
+                            <form method="POST" action="eliminar_libro.php" class="d-inline">
+                                <input type="hidden" name="id" value="<?php echo $libro['id']; ?>">
+                                <button type="submit" class="btn btn-danger btn-sm"> <i class="bi bi-trash"></i> Eliminar</button>
+                            </form>
+                        </td>
 
                 </tr>
             <?php endforeach ?>

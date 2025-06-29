@@ -1,4 +1,6 @@
-<?php include('includes/header.php'); ?>
+<?php 
+require_once('./_init.php');
+include('includes/header.php'); ?>
 
 <div class="container text-center my-5">
     <h1 class="mb-4 text-success">¡Registro exitoso!</h1>

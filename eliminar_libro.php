@@ -6,8 +6,9 @@ if (!$usuario || $usuario['tipo'] !== 'admin') {
 }
 
 $id = $_POST['id'] ?? null;
-if ($id) {
-    eliminarLibro($conexion, $id);
+
+if ($id && is_numeric($id) && $id > 0) {
+    eliminarLibro($conexion, (int)$id);
 }
 
 header('Location: admin_libros.php');

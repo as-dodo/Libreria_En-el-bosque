@@ -1,4 +1,6 @@
-<?php include('includes/header.php'); ?>
+<?php 
+require_once('./_init.php');
+include('includes/header.php'); ?>
 
 <div class="container text-center" style="margin-top: 1.5rem;">
     <h1 class="text-danger" style="font-size: 1.5rem; margin-bottom: 1.5rem;">¡Algo salió mal!</h1>

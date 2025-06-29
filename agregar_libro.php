@@ -10,7 +10,7 @@ $titulo = $_POST['titulo'] ?? null;
 $autor = $_POST['autor'] ?? null;
 $precio = $_POST['precio'] ?? null;
 $descripcion = $_POST['descripcion'] ?? null;
-$imagen = $_POST['imagen'] ?? null; 
+$imagen = $_POST['imagen'] ?? null;
 
 $errores = [];
 
@@ -22,7 +22,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if (empty($titulo)) $errores[] = 'Debe ingresar un título.';
     if (empty($autor)) $errores[] = 'Debe ingresar un autor.';
-    if (!is_numeric($precio)) $errores[] = 'Debe ingresar un precio válido.';
+    if (!is_numeric($precio) || $precio <= 0) {
+        $errores[] = 'Debe ingresar un precio válido mayor a 0.';
+    }
     if (empty($descripcion)) $errores[] = 'Debe ingresar una descripción.';
 
     if (count($errores) === 0) {
@@ -62,7 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
         <div class="mb-3">
             <label for="precio">Precio</label>
-            <input type="number" name="precio" id="precio" class="form-control" value="<?php echo $precio ?>">
+            <input type="text" name="precio" id="precio" class="form-control" value="<?php echo $precio ?>">
         </div>
         <div class="mb-3">
             <label for="descripcion">Descripción</label>

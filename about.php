@@ -1,4 +1,7 @@
-<?php include('includes/header.php'); ?>
+<?php 
+require_once('./_init.php');
+include('includes/header.php');
+ ?>
 
 <h2 class="mb-4">Sobre Nosotros</h2>
 
