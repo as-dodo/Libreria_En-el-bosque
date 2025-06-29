@@ -1,4 +1,35 @@
-<?php include('includes/header.php'); ?>
+<?php
+
+require_once('./_init.php');
+include('includes/header.php');
+
+
+
+$email = $_POST['email'] ?? null;
+$contrasena = $_POST['contrasena'] ?? null;
+
+$email = filter_email($email);
+$contrasena = test_input($contrasena);
+
+$errores = [];
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $usuario = getUsuarioLogin($conexion, $email);
+
+    if ($usuario && password_verify($contrasena, $usuario['contraseña'])) {
+        $_SESSION['usuario'] = [
+            'id' => $usuario['id'],
+            'nombre' => $usuario['nombre'],
+            'tipo' => $usuario['tipo']
+        ];
+
+        header('Location: index.php');
+        exit;
+    } else {
+        $errores[] = 'Los datos ingresados son incorrectos.';
+    }
+}
+?>
 
 <div class="container-fluid">
   <div class="row h-100">
@@ -10,36 +41,34 @@
       <div class="w-75">
         <h2 class="mb-4">Inicia sesión</h2>
 
-        <form>
+        <?php if (!empty($errores)): ?>
+          <ul>
+            <?php foreach($errores as $error): ?>
+              <li class="text-danger"><?php echo $error; ?></li>
+            <?php endforeach; ?>
+          </ul>
+        <?php endif; ?>
+
+        <form action="login.php" method="post">
           <div class="form-group mb-3">
             <label for="email">Correo Electrónico</label>
-            <input type="email" class="form-control" id="email" placeholder="Correo Electrónico" required>
+            <input type="email" class="form-control" id="email" name="email"
+                   placeholder="Correo Electrónico" value="<?php echo $email ?>" required>
           </div>
 
           <div class="form-group mb-3">
-            <label for="password">Contraseña</label>
-            <input type="password" class="form-control" id="password" placeholder="Contraseña" required>
-            <small id="passwordHelpBlock" class="form-text text-muted">
-              La contraseña debe tener entre 8 y 20 caracteres, incluir letras y números, y no debe contener espacios, caracteres especiales o emojis.
+            <label for="contrasena">Contraseña</label>
+            <input type="password" class="form-control" id="contrasena" name="contrasena"
+                   placeholder="Contraseña" required>
+            <small class="form-text text-muted">
+              La contraseña debe tener al menos 8 caracteres y ser segura.
             </small>
           </div>
-
-          <div class="form-check mb-3">
-            <input class="form-check-input" type="checkbox" id="autoSizingCheck">
-            <label class="form-check-label" for="autoSizingCheck">
-              Mantener mi sesión iniciada
-            </label>
-          </div>
-
           <button type="submit" class="btn btn-success w-100">Iniciar Sesión</button>
-
-          <div class="text-center mt-3">
-            <a href="#" class="text-decoration-none" style="color: #198754;">¿Olvidaste tu contraseña?</a>
-          </div>
 
           <div class="text-center mt-2">
             <span>¿No tenés cuenta? </span>
-            <a href="register.php" class="text-decoration-none" style="color: #198754; font-weight: bold;">Regístrate aquí</a>
+            <a href="register.php" class="text-decoration-none fw-bold text-success">Regístrate aquí</a>
           </div>
         </form>
 
@@ -48,4 +77,4 @@
   </div>
 </div>
 
-    <?php include('includes/footer.php'); ?>
+<?php include('includes/footer.php'); ?>

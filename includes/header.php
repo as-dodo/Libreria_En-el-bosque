@@ -1,3 +1,8 @@
+<?php
+
+$usuario = $_SESSION['usuario'] ?? null;
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -6,6 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>En el bosque</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
@@ -27,20 +33,36 @@
                     </button>
 
                     <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                        <ul class="navbar-nav">
+                        <ul class="navbar-nav me-4">
                             <li class="nav-item">
                                 <a class="nav-link" href="index.php">Inicio</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="about.php">Sobre Nosotros</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="login.php">Iniciar Sesión</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="register.php">Registrarse</a>
-                            </li>
                         </ul>
+
+                        <?php if ($usuario): ?>
+                            <?php if ($usuario['tipo'] === 'admin'): ?>
+                                <div class="nav-item">
+                                    <a class="nav-link" href="admin_libros.php">Administrar Libros</a>
+                            </div>
+                            <?php endif; ?>
+                            <div class="d-flex align-items-center ms-4">
+                                <span class="me-3 text-success fw-semibold">
+                                    <i class="bi bi-book"></i> Hola, <?php echo htmlspecialchars($usuario['nombre']); ?></span>
+                                <a href="logout.php" class="btn btn-outline-danger btn-sm rounded-pill px-3 fw-semibold" style="font-size: 1.2rem;">Cerrar sesión</a>
+                            </div>
+                        <?php else: ?>
+                            <div class="d-flex">
+                                <a href="login.php" class="btn btn-outline-success me-2 rounded-pill px-3 fw-semibold" style="font-size: 1.2rem;">Iniciar Sesión</a>
+                                <a href="register.php" class="btn btn-success rounded-pill px-3 fw-semibold" style="font-size: 1.2rem;">Registrarse</a>
+
+
+                            </div>
+                        <?php endif; ?>
+                        </ul>
+
                     </div>
                 </div>
             </nav>
