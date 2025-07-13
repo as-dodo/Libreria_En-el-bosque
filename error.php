@@ -1,5 +1,4 @@
 <?php 
-require_once('./_init.php');
 include('includes/header.php'); ?>
 
 <div class="container text-center" style="margin-top: 1.5rem;">
