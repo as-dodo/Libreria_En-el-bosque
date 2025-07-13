@@ -45,13 +45,24 @@ $usuario = $_SESSION['usuario'] ?? null;
                         <?php if ($usuario): ?>
                             <?php if ($usuario['tipo'] === 'admin'): ?>
                                 <div class="nav-item">
-                                    <a class="nav-link" href="admin_libros.php">Administrar Libros</a>
-                            </div>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="#" id="adminDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            Administrar
+                                        </a>
+                                        <ul class="dropdown-menu" aria-labelledby="adminDropdown">
+                                            <li><a class="dropdown-item" href="admin_libros.php">Libros</a></li>
+                                            <li><a class="dropdown-item" href="admin_usuarios.php">Usuarios</a></li>
+                                        </ul>
+                                    </li>
+                                </div>
                             <?php endif; ?>
                             <div class="d-flex align-items-center ms-4">
                                 <span class="me-3 text-success fw-semibold">
-                                    <i class="bi bi-book"></i> Hola, <?php echo htmlspecialchars($usuario['nombre']); ?></span>
-                                <a href="logout.php" class="btn btn-outline-danger btn-sm rounded-pill px-3 fw-semibold" style="font-size: 1.2rem;">Cerrar sesión</a>
+                                    <a class="me-3 text-success fw-semibold" href="editar_perfil.php" style="color: #198754; font-weight: bold;">
+                                        📖 Hola, <?php echo htmlspecialchars($usuario['nombre']); ?>
+                                    </a>
+
+                                    <a href="logout.php" class="btn btn-outline-danger btn-sm rounded-pill px-3 fw-semibold" style="font-size: 1.2rem;">Cerrar sesión</a>
                             </div>
                         <?php else: ?>
                             <div class="d-flex">

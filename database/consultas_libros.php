@@ -16,6 +16,33 @@ function agregarLibro(PDO $conexion, array $data): void {
     $consulta = $conexion->prepare($sql);
     $consulta->execute($data);
 }
+function getLibroPorId(PDO $conexion, int $id): ?array {
+    $consulta = $conexion->prepare("SELECT * FROM libros WHERE id = :id");
+    $consulta->execute([':id' => $id]);
+    return $consulta->fetch(PDO::FETCH_ASSOC) ?: null;
+}
+
+function actualizarLibro(PDO $conexion, int $id, array $datos): void {
+    $consulta = $conexion->prepare("
+        UPDATE libros SET
+            titulo = :titulo,
+            autor = :autor,
+            precio = :precio,
+            descripcion = :descripcion,
+            imagen = :imagen
+        WHERE id = :id
+    ");
+    
+    $consulta->execute([
+        ':id' => $id,
+        ':titulo' => $datos[':titulo'],
+        ':autor' => $datos[':autor'],
+        ':precio' => $datos[':precio'],
+        ':descripcion' => $datos[':descripcion'],
+        ':imagen' => $datos[':imagen']
+    ]);
+}
+
 
 ?>
 

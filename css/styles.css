@@ -52,3 +52,18 @@ footer a img {
 footer a img:hover {
     transform: scale(1.2);
 }
+.dropdown-menu, .nav-item{
+    list-style: none; 
+    padding-left: 0;
+}
+.dropdown-menu .dropdown-item:hover {
+    background-color: #e6f9ec;
+}
+.btn-fixed {
+  padding: 10px 30px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  min-width: 180px;
+  line-height: 1.2;
+}
+

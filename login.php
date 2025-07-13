@@ -20,10 +20,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $_SESSION['usuario'] = [
             'id' => $usuario['id'],
             'nombre' => $usuario['nombre'],
+            'apellido' => $usuario['apellido'],
+            'email' => $usuario['email'],
+            'fecha_nacimiento' => $usuario['fecha_nacimiento'],
+            'genero' => $usuario['genero'],
             'tipo' => $usuario['tipo']
         ];
 
-        header('Location: index.php');
+        header('Location: bienvenida.php');
         exit;
     } else {
         $errores[] = 'Los datos ingresados son incorrectos.';

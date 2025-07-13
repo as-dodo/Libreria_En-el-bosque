@@ -26,5 +26,22 @@ function getUsuarioLogin(PDO $conexion, $email) {
     return $consulta->fetch(PDO::FETCH_ASSOC);
 }
 
+function getUsuarios(PDO $conexion): array {
+    $consulta = $conexion->query("SELECT * FROM usuarios");
+    return $consulta->fetchAll(PDO::FETCH_ASSOC);
+}
+
+function cambiarRolUsuario(PDO $conexion, int $id, string $rol): void
+{
+    $consulta = $conexion->prepare("UPDATE usuarios SET tipo = :rol WHERE id = :id");
+    $consulta->bindValue(':rol', $rol);
+    $consulta->bindValue(':id', $id, PDO::PARAM_INT);
+    $consulta->execute();
+}
+function obtenerUsuarioPorId(PDO $conexion, int $id): ?array {
+    $consulta = $conexion->prepare("SELECT * FROM usuarios WHERE id = :id");
+    $consulta->execute([':id' => $id]);
+    return $consulta->fetch(PDO::FETCH_ASSOC) ?: null;
+}
 
 ?>
