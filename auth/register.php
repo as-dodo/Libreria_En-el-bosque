@@ -1,7 +1,7 @@
 <?php
 
-require_once('./_init.php');
-include('includes/header.php');
+require_once('../_init.php');
+include('../includes/header.php');
 
 
 $nombre = $_POST['nombre'] ?? null;
@@ -114,4 +114,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </div>
 
 
-<?php include('includes/footer.php'); ?>
+<?php include('../includes/footer.php'); ?>

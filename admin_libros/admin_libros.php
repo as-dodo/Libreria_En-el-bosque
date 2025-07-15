@@ -1,14 +1,14 @@
 <?php
-require_once('./_init.php');
+require_once('../_init.php');
 if (!$usuario || $usuario['tipo'] !== 'admin') {
-    header('Location: error.php');
+    header('Location: ../paginas/error.php');
     exit;
 }
 
 $libros = getLibros($conexion);
 ?>
 
-<?php include('includes/header.php'); ?>
+<?php include('../includes/header.php'); ?>
 
 <div class="container my-5">
     <h2>Administración de Libros</h2>
@@ -30,8 +30,8 @@ $libros = getLibros($conexion);
             <?php foreach ($libros as $libro): ?>
                 <tr>
                     <td style="text-align: center">
-                        <?php if (!empty($libro['imagen']) && file_exists($libro['imagen'])): ?>
-                            <img src="<?php echo htmlspecialchars($libro['imagen']); ?>" alt="Imagen" style="max-height: 100px; border-radius: 4px;">
+                        <?php if (!empty($libro['imagen']) && file_exists(__DIR__ . '/../' . $libro['imagen'])): ?>
+                            <img src="../<?php echo htmlspecialchars($libro['imagen']); ?>" alt="Imagen" style="max-height: 100px; border-radius: 4px;">
                         <?php endif; ?>
                     </td>
                     <td><?php echo htmlspecialchars($libro['titulo']); ?></td>
@@ -56,4 +56,4 @@ $libros = getLibros($conexion);
     </table>
 </div>
 
-<?php include('includes/footer.php'); ?>
+<?php include('../includes/footer.php'); ?>

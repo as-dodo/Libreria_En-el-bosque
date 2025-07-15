@@ -1,7 +1,7 @@
 <?php
 
-require_once('./_init.php');
-include('includes/header.php');
+require_once('../_init.php');
+include('../includes/header.php');
 
 
 
@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             'tipo' => $usuario['tipo']
         ];
 
-        header('Location: bienvenida.php');
+        header('Location: ../user/bienvenida.php');
         exit;
     } else {
         $errores[] = 'Los datos ingresados son incorrectos.';
@@ -81,4 +81,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   </div>
 </div>
 
-<?php include('includes/footer.php'); ?>
+<?php include('../includes/footer.php'); ?>

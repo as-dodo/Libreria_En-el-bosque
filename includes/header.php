@@ -35,10 +35,10 @@ $usuario = $_SESSION['usuario'] ?? null;
                     <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                         <ul class="navbar-nav me-4">
                             <li class="nav-item">
-                                <a class="nav-link" href="index.php">Inicio</a>
+                                <a class="nav-link" href="../index.php">Inicio</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="about.php">Sobre Nosotros</a>
+                                <a class="nav-link" href="../paginas/about.php">Sobre Nosotros</a>
                             </li>
                         </ul>
 
@@ -50,24 +50,24 @@ $usuario = $_SESSION['usuario'] ?? null;
                                             Administrar
                                         </a>
                                         <ul class="dropdown-menu" aria-labelledby="adminDropdown">
-                                            <li><a class="dropdown-item" href="admin_libros.php">Libros</a></li>
-                                            <li><a class="dropdown-item" href="admin_usuarios.php">Usuarios</a></li>
+                                            <li><a class="dropdown-item" href="../admin_libros/admin_libros.php">Libros</a></li>
+                                            <li><a class="dropdown-item" href="../admin_usuarios/admin_usuarios.php">Usuarios</a></li>
                                         </ul>
                                     </li>
                                 </div>
                             <?php endif; ?>
                             <div class="d-flex align-items-center ms-4">
                                 <span class="me-3 text-success fw-semibold">
-                                    <a class="me-3 text-success fw-semibold" href="editar_perfil.php" style="color: #198754; font-weight: bold;">
+                                    <a class="me-3 text-success fw-semibold" href="../user/editar_perfil.php" style="color: #198754; font-weight: bold;">
                                         📖 Hola, <?php echo htmlspecialchars($usuario['nombre']); ?>
                                     </a>
 
-                                    <a href="logout.php" class="btn btn-outline-danger btn-sm rounded-pill px-3 fw-semibold" style="font-size: 1.2rem;">Cerrar sesión</a>
+                                    <a href="../auth/logout.php" class="btn btn-outline-danger btn-sm rounded-pill px-3 fw-semibold" style="font-size: 1.2rem;">Cerrar sesión</a>
                             </div>
                         <?php else: ?>
                             <div class="d-flex">
-                                <a href="login.php" class="btn btn-outline-success me-2 rounded-pill px-3 fw-semibold" style="font-size: 1.2rem;">Iniciar Sesión</a>
-                                <a href="register.php" class="btn btn-success rounded-pill px-3 fw-semibold" style="font-size: 1.2rem;">Registrarse</a>
+                                <a href="../auth/login.php" class="btn btn-outline-success me-2 rounded-pill px-3 fw-semibold" style="font-size: 1.2rem;">Iniciar Sesión</a>
+                                <a href="../auth/register.php" class="btn btn-success rounded-pill px-3 fw-semibold" style="font-size: 1.2rem;">Registrarse</a>
 
 
                             </div>

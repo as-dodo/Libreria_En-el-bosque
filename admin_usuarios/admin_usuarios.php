@@ -1,14 +1,14 @@
 <?php
-require_once('./_init.php');
+require_once('../_init.php');
 if (!$usuario || $usuario['tipo'] !== 'admin') {
-    header('Location: error.php');
+    header('Location: ../error.php');
     exit;
 }
 
 $usuarios = getUsuarios($conexion);
 ?>
 
-<?php include('includes/header.php'); ?>
+<?php include('../includes/header.php'); ?>
 
 <div class="container my-5">
     <h2>Administración de Usuarios</h2>
@@ -63,4 +63,4 @@ $usuarios = getUsuarios($conexion);
     </table>
 </div>
 
-<?php include('includes/footer.php'); ?>
+<?php include('../includes/footer.php'); ?>

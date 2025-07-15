@@ -1,8 +1,8 @@
 <?php
-require_once('./_init.php');
+require_once('../_init.php');
 
 if (!$usuario) {
-    header('Location: login.php');
+    header('Location: ../auth/login.php');
     exit;
 }
 
@@ -68,13 +68,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         $_SESSION['usuario'] = obtenerUsuarioPorId($conexion, $usuario['id']);
 
-        header('Location: index.php?perfil_actualizado=1');
+        header('Location: ../index.php?perfil_actualizado=1');
         exit;
     }
 }
 ?>
 
-<?php include('includes/header.php'); ?>
+<?php include('../includes/header.php'); ?>
 
 <div class="container my-5">
     <h2>Editar perfil</h2>
@@ -126,4 +126,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </form>
 </div>
 
-<?php include('includes/footer.php'); ?>
+<?php include('../includes/footer.php'); ?>

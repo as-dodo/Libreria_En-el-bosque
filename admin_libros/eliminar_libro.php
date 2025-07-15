@@ -1,7 +1,7 @@
 <?php
-require_once('./_init.php');
+require_once('../_init.php');
 if (!$usuario || $usuario['tipo'] !== 'admin') {
-    header('Location: error.php');
+    header('Location: ../paginas/error.php');
     exit;
 }
 

@@ -1,13 +1,13 @@
 <?php 
-require_once('./_init.php');
-include('includes/header.php');
+require_once('../_init.php');
+include('../includes/header.php');
  ?>
 
 <h2 class="mb-4">Sobre Nosotros</h2>
 
 <div class="row align-items-center mb-4">
   <div class="col-md-5 mb-3 mb-md-0">
-    <img src="img/libro.jpg" class="img-fluid rounded w-100" alt="Imagen de librería">
+    <img src="../img/libro.jpg" class="img-fluid rounded w-100" alt="Imagen de librería">
   </div>
   <div class="col-md-7">
     <p>Bienvenido a "En el bosque", un pequeño refugio para los amantes de los libros en el corazón de la ciudad. 
@@ -28,4 +28,4 @@ include('includes/header.php');
   </div>
 </div>
 
-<?php include('includes/footer.php'); ?>
+<?php include('../includes/footer.php'); ?>

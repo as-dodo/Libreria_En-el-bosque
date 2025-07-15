@@ -1,9 +1,9 @@
 <?php
-require_once('./_init.php');
-require_once('./funciones/archivos.php');
+require_once('../_init.php');
+require_once('../funciones/archivos.php');
 
 if (!$usuario || $usuario['tipo'] !== 'admin') {
-    header('Location: error.php');
+    header('Location: ../paginas/error.php');
     exit;
 }
 
@@ -51,7 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 ?>
 
-<?php include('includes/header.php'); ?>
+<?php include('../includes/header.php'); ?>
 
 <div class="container my-5">
     <h2>Agregar nuevo libro</h2>
@@ -89,4 +89,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </form>
 </div>
 
-<?php include('includes/footer.php'); ?>
+<?php include('../includes/footer.php'); ?>

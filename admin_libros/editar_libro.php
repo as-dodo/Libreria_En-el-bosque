@@ -1,10 +1,10 @@
 <?php
-require_once('./_init.php');
-require_once('./funciones/archivos.php');
+require_once('../_init.php');
+require_once('../funciones/archivos.php');
 
 
 if (!$usuario || $usuario['tipo'] !== 'admin') {
-    header('Location: error.php');
+    header('Location: ../paginas/error.php');
     exit;
 }
 
@@ -61,7 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 ?>
 
-<?php include('includes/header.php'); ?>
+<?php include('../includes/header.php'); ?>
 
 <div class="container my-5">
     <h2>Editar Libro</h2>
@@ -89,10 +89,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <label for="descripcion">Descripción</label>
             <textarea name="descripcion" id="descripcion" class="form-control"><?php echo htmlspecialchars($descripcion); ?></textarea>
         </div>
-        <?php if (!empty($libro['imagen']) && file_exists($libro['imagen'])): ?>
+        <?php if (!empty($libro['imagen']) && file_exists(__DIR__ . '/../' . $libro['imagen'])): ?>
             <div class="mb-3">
                 <label>Imagen actual:</label><br>
-                <img src="<?php echo htmlspecialchars($libro['imagen']); ?>" alt="Imagen actual" style="max-height: 150px; border-radius: 8px;">
+                <img src="../<?php echo htmlspecialchars($libro['imagen']); ?>" alt="Imagen actual" style="max-height: 150px; border-radius: 8px;">
             </div>
         <?php endif; ?>
 
@@ -106,4 +106,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </form>
 </div>
 
-<?php include('includes/footer.php'); ?>
+<?php include('../includes/footer.php'); ?>

@@ -12,7 +12,7 @@ $libros = getLibros($conexion);
 
 <div class="row">
     <?php foreach ($libros as $libro) { ?>
-        <?php $imagen = (isset($libro['imagen']) && file_exists($libro['imagen']))
+        <?php $imagen = (isset($libro['imagen']) && file_exists(__DIR__ . '/' . $libro['imagen']))
             ? $libro['imagen']
             : 'img/default_book_img.jpeg';
         ?>
